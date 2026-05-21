@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "https://asset-verse-server-lilac-sigma.vercel.app",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 

@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import CountUp from "react-countup";
 import TestimoniCard from "./TestimoniCard";
 
 const Testimonials = ({ testimonialsPromise }) => {
@@ -47,8 +48,8 @@ const Testimonials = ({ testimonialsPromise }) => {
                 className="flex flex-col items-center bg-blue-100 p-6 rounded-lg border border-base-200 shadow-sm"
               >
                 <div className="text-4xl font-extrabold text-gray-900">
-                  {s.value.toLocaleString()}
-                  {s.id === "fulfillment" && "%"}
+                  <CountUp end={s.value} duration={5} />
+                  {s.suffix}
                 </div>
                 <div className="mt-3 text-lg font-medium">{s.label}</div>
               </div>
@@ -84,46 +85,45 @@ const Testimonials = ({ testimonialsPromise }) => {
               Trusted by leading companies
             </p>
 
-           <div className="overflow-hidden py-6 relative bg-gray-100">
-            <style>
-            {`
+            <div className="overflow-hidden py-6 relative bg-gray-100">
+              <style>
+                {`
             @keyframes smoothMarquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
             }`}
-            </style>
+              </style>
 
-            <div className="flex w-max whitespace-nowrap">
-            <div
-            className="
+              <div className="flex w-max whitespace-nowrap">
+                <div
+                  className="
             flex gap-12
-            animate-[smoothMarquee_18s_linear_infinite]"  
-            >
-            {trust_logos.map((src, idx) => (
-            <img
-            key={idx}
-            src={src}
-            className="w-28 h-10 object-contain opacity-80 hover:opacity-100 transition"
-            />
-            ))}
-            </div>
+            animate-[smoothMarquee_18s_linear_infinite]"
+                >
+                  {trust_logos.map((src, idx) => (
+                    <img
+                      key={idx}
+                      src={src}
+                      className="w-28 h-10 object-contain opacity-80 hover:opacity-100 transition"
+                    />
+                  ))}
+                </div>
 
-            <div
-            className="
+                <div
+                  className="
             flex gap-10
-            animate-[smoothMarquee_18s_linear_infinite]"   
-            >
-            {trust_logos.map((src, idx) => (
-            <img
-            key={'clone-' + idx}
-            src={src}
-            className="w-28 h-10 object-contain opacity-80 hover:opacity-100 transition"
-            />
-            ))}
+            animate-[smoothMarquee_18s_linear_infinite]"
+                >
+                  {trust_logos.map((src, idx) => (
+                    <img
+                      key={"clone-" + idx}
+                      src={src}
+                      className="w-28 h-10 object-contain opacity-80 hover:opacity-100 transition"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-            </div>
-            </div>
-
           </div>
         )}
       </div>

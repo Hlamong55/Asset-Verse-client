@@ -83,11 +83,11 @@
   ],
 
   "stats": [
-    { "id": "companies", "label": "Companies Trust Us", "value": "120+" },
-    { "id": "assets", "label": "Assets Tracked", "value": "8400+" },
-    { "id": "fulfillment", "label": "Request Fulfillment (%)", "value": 97 },
-    { "id": "uptime", "label": "Avg. HR Time Saved", "value": "28 hrs/m" }
-  ],
+  { "id": "companies", "label": "Companies Trust Us", "value": 120, "suffix": "+" },
+  { "id": "assets", "label": "Assets Tracked", "value": 8400, "suffix": "+" },
+  { "id": "fulfillment", "label": "Request Fulfillment (%)", "value": 97, "suffix": "%" },
+  { "id": "uptime", "label": "Avg. HR Time Saved", "value": 28, "suffix": " hrs/m" }
+],
 
   "trust_logos": [
   "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",

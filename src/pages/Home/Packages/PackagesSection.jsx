@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAuth from "../../../hooks/useAuth";
 import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
 const PackagesSection = () => {
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
 
@@ -15,7 +17,7 @@ const PackagesSection = () => {
 
   // fetch packages
   useEffect(() => {
-    axiosSecure
+    axiosPublic
       .get("/packages")
       .then((res) => {
         setPackages(res.data);
@@ -25,7 +27,7 @@ const PackagesSection = () => {
         console.error(err);
         setLoading(false);
       });
-  }, [axiosSecure]);
+  }, [axiosPublic]);
 
   // fetch user role
   useEffect(() => {
