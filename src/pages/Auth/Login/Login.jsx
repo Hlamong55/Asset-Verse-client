@@ -4,12 +4,14 @@ import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import CompleteProfileModal from "../../../components/GoogleLoginModal/CompleteProfileModal";
 
 
 const Login = () => {
   const { signInUser, googleLogin, user, setUser } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
   const [showProfileModal, setShowProfileModal] = useState(false);
@@ -26,7 +28,7 @@ const Login = () => {
     try {
       await signInUser(data.email, data.password);
 
-      const tokenRes = await axiosSecure.post("/jwt", {
+      const tokenRes = await axiosPublic.post("/jwt", {
         email: data.email,
       });
       localStorage.setItem("access-token", tokenRes.data.token);
